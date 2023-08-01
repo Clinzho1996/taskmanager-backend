@@ -13,9 +13,9 @@ mongoose.connect(process.env.MONGODB_API);
 const app = express();
 const SECRET_KEY = process.env.SECRET_KEY_API;
 
-app.listen("https://taskmanager-backend-five.vercel.app/", () =>
-  console.log("App is running in http://localhost:3000")
-);
+const PORT = process.env.PORT || 3000; // Use the environment variable for the port if available, or default to 3000
+
+app.listen(PORT, () => console.log(`App is running on port ${PORT}`));
 
 app.get("/api/register", function (req, res) {
   res.send("Api is live");
@@ -173,7 +173,8 @@ app.post("/api/forgot-password", async (req, res) => {
       },
     });
 
-    const resetLink = `http://localhost:3000/api/reset-password/${resetToken}`;
+    const resetLink = `https://taskmanager-backend-five.vercel.app/api/reset-password/${resetToken}`;
+
     const mailOptions = {
       from: "confidinho@yahoo.com",
       to: email,
