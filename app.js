@@ -7,14 +7,15 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
-const router = express.Router();
 
 mongoose.connect(process.env.MONGODB_API);
 
 const app = express();
 const SECRET_KEY = process.env.SECRET_KEY_API;
 
-app.listen(3000, () => console.log("App is running in http://localhost:3000"));
+app.listen("https://taskmanager-backend-five.vercel.app/", () =>
+  console.log("App is running in http://localhost:3000")
+);
 
 app.get("/api/register", function (req, res) {
   res.send("Api is live");
