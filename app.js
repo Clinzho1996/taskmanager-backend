@@ -16,6 +16,9 @@ const SECRET_KEY = process.env.SECRET_KEY_API;
 
 app.listen(3000, () => console.log("App is running in http://localhost:3000"));
 
+app.get("/", function (req, res) {
+  res.send("Api is live");
+});
 // middleware
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
