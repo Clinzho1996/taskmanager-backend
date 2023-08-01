@@ -15,7 +15,7 @@ const SECRET_KEY = process.env.SECRET_KEY_API;
 
 const PORT = process.env.PORT || 3000; // Use the environment variable for the port if available, or default to 3000
 
-app.listen(PORT, () => console.log(`App is running on port ${PORT}`));
+app.listen(3000, () => console.log("App is running on http://localhost:3000"));
 
 app.get("/api/register", function (req, res) {
   res.send("Api is live");
