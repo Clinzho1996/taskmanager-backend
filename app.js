@@ -13,7 +13,10 @@ mongoose.connect(process.env.MONGODB_API);
 const app = express();
 const SECRET_KEY = process.env.SECRET_KEY_API;
 
-app.listen(3000, () => console.log("App is running on http://localhost:3000"));
+const port = process.env.PORT || 3000;
+app.listen(port, () =>
+  console.log(`App is running on http://localhost:${port}`)
+);
 
 app.get("/api/register", function (req, res) {
   res.send("Api is live");
